@@ -1,0 +1,2 @@
+run:
+	java ./Calculator.java
