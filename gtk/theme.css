@@ -1,0 +1,15 @@
+button, entry {
+	background-color: #3E3F44;
+	color: #BDC6CB;
+	font: 20px "Comic Sans";
+}
+
+textview, text {
+	background-color: #9CAA9B;
+	color: #222E31;
+	font: 24px "Monospace";
+}
+
+window {
+	background-color: #181818;
+}
