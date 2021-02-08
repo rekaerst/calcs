@@ -1,6 +1,6 @@
 CC=gcc
 SOURCE=main.c
-BINARY=main
+BINARY=calc
 
 main: ${SOURCE}
 	${CC} ${SOURCE} -g -o ${BINARY} -fPIC ${shell pkg-config --cflags --libs gtk+-3.0} -lm
