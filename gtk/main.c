@@ -34,7 +34,7 @@ static void display_insert(GtkTextBuffer *buffer, const char *str) {
 		// You are trying to input any thing but a "." and ...
 		if (strcmp(str, ".") != 0) {
 			// Text on display is a "0"
-			if (display_char_count == 1 && text[0] == '0' && strcmp(str, ".") != 0) {
+			if (display_char_count == 1 && text[0] == '0') {
 				gtk_text_buffer_set_text(buffer, str, strlen(str));
 			} else { // Text on display is NOT a "0"
 				gtk_text_buffer_insert_at_cursor(buffer, str, strlen(str));
