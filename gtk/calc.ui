@@ -75,8 +75,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="Delete" signal="clicked"/>
                 <accelerator key="KP_Delete" signal="clicked"/>
+                <accelerator key="Delete" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -104,8 +104,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="slash" signal="clicked"/>
                 <accelerator key="KP_Divide" signal="clicked"/>
+                <accelerator key="slash" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -119,8 +119,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="7" signal="clicked"/>
                 <accelerator key="KP_7" signal="clicked"/>
+                <accelerator key="7" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -133,8 +133,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="8" signal="clicked"/>
                 <accelerator key="KP_8" signal="clicked"/>
+                <accelerator key="8" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -147,8 +147,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="9" signal="clicked"/>
                 <accelerator key="KP_9" signal="clicked"/>
+                <accelerator key="9" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -161,8 +161,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="x" signal="clicked"/>
                 <accelerator key="KP_Multiply" signal="clicked"/>
+                <accelerator key="x" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -176,8 +176,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="4" signal="clicked"/>
                 <accelerator key="KP_4" signal="clicked"/>
+                <accelerator key="4" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -190,8 +190,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="5" signal="clicked"/>
                 <accelerator key="KP_5" signal="clicked"/>
+                <accelerator key="5" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -204,8 +204,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="6" signal="clicked"/>
                 <accelerator key="KP_6" signal="clicked"/>
+                <accelerator key="6" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -213,13 +213,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button_min">
+              <object class="GtkButton" id="button_sub">
                 <property name="label" translatable="yes">-</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="minus" signal="clicked"/>
                 <accelerator key="KP_Subtract" signal="clicked"/>
+                <accelerator key="minus" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -233,8 +233,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="1" signal="clicked"/>
                 <accelerator key="KP_1" signal="clicked"/>
+                <accelerator key="1" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -247,8 +247,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="2" signal="clicked"/>
                 <accelerator key="KP_2" signal="clicked"/>
+                <accelerator key="2" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -261,8 +261,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="3" signal="clicked"/>
                 <accelerator key="KP_3" signal="clicked"/>
+                <accelerator key="3" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -275,8 +275,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="plus" signal="clicked"/>
                 <accelerator key="KP_Add" signal="clicked"/>
+                <accelerator key="plus" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -291,8 +291,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="KP_Decimal" signal="clicked"/>
                 <accelerator key="period" signal="clicked"/>
+                <accelerator key="KP_Decimal" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -305,8 +305,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="0" signal="clicked"/>
                 <accelerator key="KP_0" signal="clicked"/>
+                <accelerator key="0" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -319,7 +319,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <accelerator key="0xffffff" signal="clicked"/>
+                <accelerator key="KP_Enter" signal="clicked"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>
