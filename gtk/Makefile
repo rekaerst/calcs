@@ -1,6 +1,9 @@
-CC=gcc
-SOURCE=main.c
-BINARY=calc
+CC = gcc
+CFLAGS = -Wall -c $(shell pkg-config --cflags gtk+-3.0)
+LDFLAGS = $(shell pkg-config --libs gtk+-3.0) -lm
+SOURCE = $(wildchar *.c)
+OBJECTS = $(SOURCE:%.c=%.o)
+BINARY = calc
 
-main: ${SOURCE}
-	${CC} ${SOURCE} -g -o ${BINARY} -fPIC ${shell pkg-config --cflags --libs gtk+-3.0} -lm
+$(BINARY): main.o
+	$(CC) $^ $(LDFLAGS) -o $@
