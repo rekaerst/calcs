@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
 import sys
+import math
 from enum import Enum, auto
-from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QVBoxLayout, QLineEdit
+from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QVBoxLayout, QLineEdit, QShortcut
+from PyQt5.QtGui import QKeySequence
 
 
 class Calc(QWidget):
@@ -10,6 +12,7 @@ class Calc(QWidget):
     class Display(QLineEdit):
         def __init__(self):
             super().__init__()
+            self.setReadOnly(True)
 
         def backspace(self):
             if self.text() == "0":
@@ -43,6 +46,18 @@ class Calc(QWidget):
         self.accumulator = 0
         self.operation = Calc.Operation.NUL
         self.is_operation_button_clicked = False
+
+        self.setStyleSheet(
+            """QWidget {
+	background-color: #181818;
+}
+QLineEdit {
+	background-color: #9CAA9B;
+	color: #222E31;
+	font: 24px "Monospace";
+}
+"""
+        )
         self.initUI()
 
     def initUI(self):
@@ -65,8 +80,7 @@ class Calc(QWidget):
         buttonPositions = [(i, j) for i in range(5) for j in range(4)]
 
         for position, name in zip(buttonPositions, buttonNames):
-            button = QPushButton(name)
-
+            button = QPushButton("&" + name)
             if name.isdigit():
                 button.clicked.connect(
                     lambda checked, arg=int(name): self.on_number_button_clicked(arg))
@@ -81,14 +95,40 @@ class Calc(QWidget):
 
             gridLayout.addWidget(button, *position)
 
-        self.setWindowTitle("Calculator")
+        for i in range(0, 10):
+            shortcut = QShortcut(QKeySequence(str(i)), self)
+            shortcut.activated.connect(
+                lambda arg=i: self.on_number_button_clicked(arg))
+
+        shortcut = QShortcut(QKeySequence("c"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("C"))
+        shortcut = QShortcut(QKeySequence("Backspace"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("<-"))
+        shortcut = QShortcut(QKeySequence("+"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("+"))
+        shortcut = QShortcut(QKeySequence("-"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("-"))
+        shortcut = QShortcut(QKeySequence("*"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("*"))
+        shortcut = QShortcut(QKeySequence("x"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("*"))
+        shortcut = QShortcut(QKeySequence("/"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("/"))
+        shortcut = QShortcut(QKeySequence("%"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("%"))
+        shortcut = QShortcut(QKeySequence("."), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("."))
+        shortcut = QShortcut(QKeySequence("="), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("="))
+        shortcut = QShortcut(QKeySequence("Enter"), self)
+        shortcut.activated.connect(lambda arg=i: self.on_button_clicked("="))
+
         self.show()
 
     def calculate(self, operation):
         if not self.is_operation_button_clicked:
             if self.operation == Calc.Operation.ADD:
                 self.accumulator += float(self.display.text())
-                print(self.accumulator)
             elif self.operation == Calc.Operation.SUB:
                 self.accumulator -= float(self.display.text())
             elif self.operation == Calc.Operation.MUL:
@@ -100,7 +140,10 @@ class Calc(QWidget):
             elif self.operation == Calc.Operation.NUL:
                 self.accumulator = float(self.display.text())
 
-        self.display.setText(str(self.accumulator))
+        if math.ceil(self.accumulator) == self.accumulator:
+            self.display.setText(str(int(self.accumulator)))
+        else:
+            self.display.setText(str(self.accumulator))
         self.is_operation_button_clicked = True
         self.operation = operation
 
