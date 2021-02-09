@@ -1,3 +1,4 @@
 gtk/calc
 gtk/.cache/**
 *.o
+*.exe
