@@ -1,0 +1,7 @@
+[
+	{
+		"directory": "/home/arthur/src/lab/windows",
+		"command": "x86_64-w64-mingw32-gcc -mwindows main.c -o main",
+		"file": "main.c"
+	}
+]
