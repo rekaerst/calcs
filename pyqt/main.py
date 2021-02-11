@@ -46,6 +46,7 @@ class Calc(QWidget):
         self.accumulator = 0
         self.operation = Calc.Operation.NUL
         self.is_operation_button_clicked = False
+        self.is_divition_by_zero = False
 
         self.setStyleSheet(
             """QWidget {
@@ -134,7 +135,12 @@ QLineEdit {
             elif self.operation == Calc.Operation.MUL:
                 self.accumulator *= float(self.display.text())
             elif self.operation == Calc.Operation.DIV:
-                self.accumulator /= float(self.display.text())
+                if float(self.display.text()) == 0:
+                    self.display.setText("DIVISION BY ZERO")
+                    self.is_divition_by_zero = True
+                    return
+                else:
+                    self.accumulator /= float(self.display.text())
             elif self.operation == Calc.Operation.MOD:
                 self.accumulator %= float(self.display.text())
             elif self.operation == Calc.Operation.NUL:
@@ -148,17 +154,20 @@ QLineEdit {
         self.operation = operation
 
     def on_number_button_clicked(self, digit: int):
+        if self.is_divition_by_zero:
+            return
+
         if self.is_operation_button_clicked:
             self.display.clear()
             self.is_operation_button_clicked = False
         self.display.insert(str(digit))
 
     def on_button_clicked(self, name: str):
+
         if name == "C":
-            self.accumulator = 0
-            self.is_operation_button_clicked = False
-            self.operation = Calc.Operation.NUL
-            self.display.clear()
+            self.reset()
+        elif self.is_divition_by_zero:
+            return
         elif name == "<-":
             self.display.backspace()
         elif name == "+":
@@ -176,6 +185,12 @@ QLineEdit {
         elif name == ".":
             self.display.insert(".")
 
+    def reset(self):
+        self.accumulator = 0
+        self.is_operation_button_clicked = False
+        self.is_divition_by_zero = False
+        self.operation = Calc.Operation.NUL
+        self.display.clear()
 
 def main():
     app = QApplication(sys.argv)
