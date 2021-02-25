@@ -9,7 +9,7 @@ $(BINARY): $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $(BINARY)
 
 $(OBJECTS): %.o: %.c 
-	$(CC) -c $(SOURCE) $(CFLAGS)
+	$(CC) $(SOURCE) $(CFLAGS)
 
 clean:
 	rm -rf *.o
