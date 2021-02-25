@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 class Calculator extends JFrame {
 
@@ -51,13 +52,22 @@ class Calculator extends JFrame {
 		setTitle("Calculator");
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		setLocationRelativeTo(null);
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		display = new JTextField("0");
 		display.setBounds(25, 25, 310, 75);
 		display.setEditable(false);
-		display.setBackground(Color.WHITE);
+		display.setBackground(new Color(0X9CAA9B));
 		display.setForeground(Color.darkGray);
-		display.setFont(new Font("Comic Sans MS", Font.PLAIN, 33));
+		if (System.getProperty("os.name").equals("Linux")) {
+			display.setFont(new Font("Comic Neue", Font.PLAIN, 33));
+		} else if (System.getProperty("os.name").equals("Windows")) {
+			display.setFont(new Font("Comic Sans", Font.PLAIN, 33 ));
+		}
 		add(display);
 
 		// number buttons initicalization
